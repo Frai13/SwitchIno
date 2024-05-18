@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <AssemblyName>SwitchIno</AssemblyName>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="SwitchInoCLI\Commands\SetDefaultConfigSerial.cs" />
+    <Compile Include="SwitchInoCLI\Commands\GetDefaultConfig.cs" />
+    <Compile Include="SwitchInoCLI\SwitchIno.cs" />
+    <Compile Include="SwitchInoCLI\Commands\GetState.cs" />
+    <Compile Include="SwitchInoCLI\Commands\Disconnect.cs" />
+    <Compile Include="SwitchInoCLI\Commands\Connect.cs" />
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoVersion.cs" />
+    <Compile Include="SwitchInoCLI\Commands\EasInoVersion.cs" />
+    <Compile Include="SwitchInoCLI\Commands\ListOutputs.cs" />
+    <Compile Include="SwitchInoCLI\Commands\Help.cs" />
+    <Compile Include="SwitchInoCLI\Common.cs" />
+    <Compile Include="SwitchInoCLI\ICommand.cs" />
+    <Compile Include="SwitchInoCLI\SwitchInoConfig.cs" />
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoForm\ConfigurationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoForm\ConfigurationWindow.Designer.cs">
+      <DependentUpon>ConfigurationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoForm\OutputVisualizer.cs" />
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoForm\OutputVisualizer.Designer.cs" />
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoForm\SwitchInoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SwitchInoCLI\Commands\SwitchInoForm\SwitchInoForm.Designer.cs">
+      <DependentUpon>SwitchInoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SwitchInoCLI\Commands\SwitchInoForm\ConfigurationWindow.resx">
+      <DependentUpon>ConfigurationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwitchInoCLI\Commands\SwitchInoForm\OutputVisualizer.resx" />
+    <EmbeddedResource Include="SwitchInoCLI\Commands\SwitchInoForm\SwitchInoForm.resx">
+      <DependentUpon>SwitchInoForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="libraries\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EasInoAPI">
+      <HintPath>libraries\EasInoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="libraries\EasInoAPI.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
